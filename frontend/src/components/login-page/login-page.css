@@ -20,7 +20,8 @@
 
 /* PAGE BUTTONS */
 .page-login button {
-  background-color: green;
+  font-size: 1em;
+  background-color: #5bb966;
   color: white;
   border-radius: 2px;
 }

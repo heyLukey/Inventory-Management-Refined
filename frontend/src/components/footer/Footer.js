@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="my-info">Copyright &#169; 2020-{thisYear}</div>
           <div className="divider">|</div>
-          <div className="designed-by">Designed by Lucas Loudon</div>
+          <div className="designed-by">Created by Lucas Loudon</div>
           <div className="my-socials">
             <a
               className="github"

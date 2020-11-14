@@ -13,6 +13,7 @@ import LoginPage from "./components/login-page/LoginPage";
 import RegisterPage from "./components/register-page/RegisterPage";
 import Inventory from "./components/inventory-app/Inventory";
 import Footer from "./components/footer/Footer";
+import Page404 from "./components/page-404/Page404";
 
 // Style sheet
 import "./App.css";
@@ -35,6 +36,7 @@ function App() {
               <Route exact path="/login" component={LoginPage} />
               <Route exact path="/register" component={RegisterPage} />
               <Route exact path="/inventory" component={Inventory} />
+              <Route path="*" component={Page404} />
             </Switch>
           </div>
           <Footer />
