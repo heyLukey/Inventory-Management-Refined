@@ -1,0 +1,141 @@
+.page-register {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  height: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+}
+
+/* PAGE TITLE */
+.page-register .page-title {
+  padding: 10px;
+  grid-row: 1;
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* PAGE BUTTONS */
+.page-register button {
+  background-color: green;
+  color: white;
+  border-radius: 2px;
+}
+
+.page-register button:focus {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 2px;
+}
+
+/* GO TO LOGIN */
+.page-register .go-login {
+  padding: 10px;
+  /* GRID INHERIT */
+  grid-row: 2/11;
+  grid-column: 3;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  /* GRID DOWN */
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.page-register .go-login h2 {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.page-register .go-login p {
+  grid-row: 2/6;
+  grid-column: 1;
+}
+
+.page-register .go-login button {
+  grid-row: 6;
+  grid-column: 1;
+}
+
+/* REGISTER FORM */
+.page-register .form-register {
+  padding: 10px;
+  /* GRID INHERIT */
+  grid-row: 3/11;
+  grid-column: 1/3;
+  /* GRID DOWN */
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.page-register .form-register input {
+  background-color: #f7f7ec;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  padding-left: 10px;
+}
+
+.page-register .form-register input:focus {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 2px;
+}
+
+.page-login .form-login h2 {
+  grid-row: 1;
+  grid-column: 1/-1;
+}
+
+.page-register .form-register .email-label {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.page-register .form-register #register_email {
+  grid-row: 2;
+  grid-column: 2/-1;
+}
+
+.page-register .form-register .username-label {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.page-register .form-register #register_username {
+  grid-row: 3;
+  grid-column: 2/-1;
+}
+
+.page-register .form-register .password-label {
+  grid-row: 4;
+  grid-column: 1;
+}
+
+.page-register .form-register #register_password {
+  grid-row: 4;
+  grid-column: 2/-1;
+}
+
+.page-register .form-register .passwordCheck-label {
+  grid-row: 5;
+  grid-column: 1;
+}
+
+.page-register .form-register #register_passwordCheck {
+  grid-row: 5;
+  grid-column: 2/-1;
+}
+
+.page-register .form-register label {
+  display: flex;
+  align-items: center;
+}
+
+.page-register .form-register button {
+  grid-row: 6;
+  grid-column: 2/-1;
+}

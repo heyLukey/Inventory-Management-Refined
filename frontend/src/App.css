@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #fffff2;
+  color: #333333;
+}
+
+button,
+input[type="submit"] {
+  border: none;
+  background: none;
+  color: unset;
+  cursor: pointer;
+}
+
+.padded {
+  width: 100%;
+  height: 56px;
+}
+
+.page {
+  height: calc(100vh - 56px);
+  max-width: 1440px;
+  margin: auto;
+  /* Temp */
+  /* border-left: 1px solid rgba(0, 0, 0, 0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.05); */
+}
