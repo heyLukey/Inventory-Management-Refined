@@ -1,90 +1,114 @@
-// Npm Libraries
-import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import Axios from "axios";
+// Npm libraries
+import React, { Component } from "react";
+import axios from "axios";
 
 // Components
 import ErrorNotice from "../error-notice/ErrorNotice";
+import NavBar from "../nav-bar/NavBar";
 
-// Context
-import UserContext from "../../context/User.context";
+// CSS
+import "./LoginPage.css";
 
-// Style sheet
-import "./login-page.css";
+// Login user on this page [restricted]
+class LoginPage extends Component {
+  constructor(props) {
+    super();
 
-const LoginPage = () => {
-  // Get setUserData from context
-  const { setUserData } = useContext(UserContext);
+    this.state = {
+      email: "",
+      password: "",
+      errorMsg: undefined,
+    };
 
-  // Get history
-  const history = useHistory();
+    this.change = this.change.bind(this);
+    this.submit = this.submit.bind(this);
+    this.toRegister = this.toRegister.bind(this);
+  }
 
-  // Create error state
-  const [errorMsg, setErrorMsg] = useState();
+  // On input field change update corresponding state
+  change(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
 
-  // Log user in
-  const loginSubmit = async (event) => {
-    try {
-      // Prevent refresh
-      event.preventDefault(event);
+  // On submit attempt login
+  submit(e) {
+    // Prevent refresh
+    e.preventDefault();
 
-      const loginData = {
-        email: event.target.login_email.value,
-        password: event.target.login_password.value,
-      };
+    const data = { email: this.state.email, password: this.state.password };
 
-      await Axios.post("http://localhost:5000/user/login", loginData).then(
-        function (response) {
-          console.log("User logged in!");
-          setUserData({
-            token: response.data.token,
-            user: response.data.user,
-          });
-          localStorage.setItem("auth-token", response.data.token);
-        }
-      );
-      history.push("/inventory");
-      console.log(loginData);
-    } catch (error) {
-      error.response.data.error && setErrorMsg(error.response.data.error);
-    }
-  };
+    // Attempt login on backend
+    axios
+      .post("http://localhost:5000/user/login", data)
+      .then((res) => {
+        localStorage.setItem("auth-token", res.data.token);
+        this.props.history.push("/inventory");
+      })
+      .catch((error) => {
+        // If login failed then set erroMsg so we can display ErrorNotice
+        error.response.data.error &&
+          this.setState({ errorMsg: error.response.data.error });
+        return;
+      });
+  }
 
-  const register = () => {
-    history.push("/register");
-  };
+  // Push user to /register
+  toRegister() {
+    this.props.history.push("/register");
+  }
 
-  return (
-    <React.Fragment>
-      <div className="page-login">
-        <h1 className="page-title">Login</h1>
-        {errorMsg && <ErrorNotice errorMsg={errorMsg} />}
-        <form className="form-login" onSubmit={loginSubmit}>
-          <h2 className="form-title">Existing Users</h2>
-          {/* Email input */}
-          <label className="email-label">Email Address*</label>
-          <input id="login_email" type="email" />
-          {/* Password input */}
-          <label className="password-label">Password*</label>
-          <input id="login_password" type="password" />
-          {/* Submit */}
-          <button type="submit" value="Sign In">
-            Sign In
-          </button>
-        </form>
-        <div className="go-register">
-          <h2>Don't have an account?</h2>
-          <p>
-            I think its hilarious u guys talk shit about lucas. u wouldnt say
-            this shit to him at lan, hes jacked. not only that but he wears the
-            freshest clothes, eats at the chillest restaurants and hangs out
-            with the hottest dudes. yall are pathetic lol.
-          </p>
-          <button onClick={register}>Register</button>
+  render() {
+    return (
+      <React.Fragment>
+        <NavBar></NavBar>
+        <div className="page">
+          <div className="page-login">
+            <h1 className="page-title">Login</h1>
+            {/* IF WE GOT AN ERROR DURING REGISTRATION THEN RENDER ErrorNotice */}
+            {this.state.errorMsg && (
+              <ErrorNotice errorMsg={this.state.errorMsg} />
+            )}
+            {/* SUBMISSION FORM */}
+            <form className="form-login" onSubmit={(e) => this.submit(e)}>
+              <h2 className="form-title">Existing Users</h2>
+              {/* EMAIL INPUT */}
+              <label className="email-label">Email*</label>
+              <input
+                className="email-input"
+                type="email"
+                name="email"
+                onChange={(e) => this.change(e)}
+                value={this.state.email}
+              />
+              {/* PASSWORD INPUT */}
+              <label className="password-label">Password*</label>
+              <input
+                className="password-input"
+                type="password"
+                name="password"
+                onChange={(e) => this.change(e)}
+                value={this.state.password}
+              />
+              <button type="submit">Submit</button>
+            </form>
+            {/* IF USER WANTS TO REGISTER INSTEAD */}
+            <div className="go-register">
+              <h2>Don't have an account?</h2>
+              <p>
+                I think its hilarious u guys talk shit about lucas. u wouldnt
+                say this shit to him at lan, hes jacked. not only that but he
+                wears the freshest clothes, eats at the chillest restaurants and
+                hangs out with the hottest dudes. yall are pathetic lol.
+              </p>
+              <button onClick={() => this.toRegister()}>Register</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </React.Fragment>
-  );
-};
+      </React.Fragment>
+    );
+  }
+}
 
 export default LoginPage;

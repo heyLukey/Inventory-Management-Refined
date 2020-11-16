@@ -1,110 +1,159 @@
-// Npm Libraries
-import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import Axios from "axios";
+// Npm libraries
+import React, { Component } from "react";
+import axios from "axios";
 
 // Components
 import ErrorNotice from "../error-notice/ErrorNotice";
+import NavBar from "../nav-bar/NavBar";
 
-// Context
-import UserContext from "../../context/User.context";
+// CSS
+import "./RegisterPage.css";
 
-// Style sheet
-import "./register-page.css";
+// Register user on this page [restricted]
+class RegisterPage extends Component {
+  constructor(props) {
+    super();
 
-const RegisterPage = () => {
-  // Get setUserData from context
-  const { setUserData } = useContext(UserContext);
+    this.state = {
+      email: "",
+      username: "",
+      password: "",
+      passwordCheck: "",
+      errorMsg: undefined,
+    };
 
-  // Get history
-  const history = useHistory();
+    this.change = this.change.bind(this);
+    this.submit = this.submit.bind(this);
+    this.toLogin = this.toLogin.bind(this);
+  }
 
-  // Create error state
-  const [errorMsg, setErrorMsg] = useState();
+  // On input field change update corresponding state
+  change(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
 
-  const registerSubmit = async (event) => {
-    try {
-      // Prevent refresh
-      event.preventDefault(event);
+  // On submit attempt registration
+  submit(e) {
+    // Prevent refresh
+    e.preventDefault();
 
-      const userSubmission = {
-        email: event.target.register_email.value,
-        username: event.target.register_username.value,
-        password: event.target.register_password.value,
-        passwordCheck: event.target.register_passwordCheck.value,
-      };
+    const registerData = {
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.password,
+      passwordCheck: this.state.passwordCheck,
+    };
 
-      await Axios.post(
-        "http://localhost:5000/user/register",
-        userSubmission
-      ).then(function () {
+    // Register on backend
+    axios
+      .post("http://localhost:5000/user/register", registerData)
+      .then((res) => {
         console.log("User created!");
-      });
 
-      console.log("user");
-      const loginData = {
-        email: userSubmission.email,
-        password: userSubmission.password,
-      };
+        const loginData = {
+          email: this.state.email,
+          password: this.state.password,
+        };
 
-      await Axios.post("http://localhost:5000/user/login", loginData).then(
-        function (response) {
-          console.log("User logged in!");
-          setUserData({
-            token: response.data.token,
-            user: response.data.user,
+        // If we successfully registered then attempt login on backend
+        axios
+          .post("http://localhost:5000/user/login", loginData)
+          .then((res) => {
+            console.log("User logged in!");
+            localStorage.setItem("auth-token", res.data.token);
+            this.props.history.push("/inventory");
+          })
+          .catch((error) => {
+            console.log(error.response.data.error);
+            return;
           });
-          localStorage.setItem("auth-token", response.data.token);
-        }
-      );
+      })
+      .catch((error) => {
+        // If register failed then set erroMsg so we can display ErrorNotice
+        error.response.data.error &&
+          this.setState({ errorMsg: error.response.data.error });
+      });
+  }
 
-      history.push("/inventory");
-    } catch (error) {
-      error.response.data.error && setErrorMsg(error.response.data.error);
-    }
-  };
+  // Push user to /login
+  toLogin() {
+    this.props.history.push("/login");
+  }
 
-  const login = () => {
-    history.push("/login");
-  };
-
-  return (
-    <React.Fragment>
-      <div className="page-register">
-        <h1 className="page-title">Register</h1>
-        {errorMsg && <ErrorNotice errorMsg={errorMsg} />}
-        <form className="form-register" onSubmit={registerSubmit}>
-          <h2 className="form-title">New Users</h2>
-          {/* Email input */}
-          <label className="email-label">Email Address*</label>
-          <input id="register_email" type="email" />
-          {/* Username input */}
-          <label className="username-label">Username*</label>
-          <input id="register_username" type="text" />
-          {/* Password input */}
-          <label className="password-label">Password*</label>
-          <input id="register_password" type="password" />
-          {/* Password Check input */}
-          <label className="passwordCheck-label">Confirm Password*</label>
-          <input id="register_passwordCheck" type="password" />
-          {/* Submit */}
-          <button type="submit" value="Sign In">
-            Sign In
-          </button>
-        </form>
-        <div className="go-login">
-          <h2>Already have an account?</h2>
-          <p>
-            I think its hilarious u guys talk shit about lucas. u wouldnt say
-            this shit to him at lan, hes jacked. not only that but he wears the
-            freshest clothes, eats at the chillest restaurants and hangs out
-            with the hottest dudes. yall are pathetic lol.
-          </p>
-          <button onClick={login}>Login</button>
+  render() {
+    return (
+      <React.Fragment>
+        <NavBar></NavBar>
+        <div className="page">
+          <div className="page-register">
+            <h1 className="page-title">Login</h1>
+            {/* IF WE GOT AN ERROR DURING REGISTRATION THEN RENDER ErrorNotice */}
+            {this.state.errorMsg && (
+              <ErrorNotice errorMsg={this.state.errorMsg} />
+            )}
+            {/* SUBMISSION FORM */}
+            <form className="form-register" onSubmit={(e) => this.submit(e)}>
+              <h2 className="form-title">New Users</h2>
+              {/* USERNAME INPUT */}
+              <label className="username-label">Username*</label>
+              <input
+                className="username-input"
+                type="text"
+                name="username"
+                onChange={(e) => this.change(e)}
+                value={this.state.username}
+                autoComplete="new-email"
+              />
+              {/* EMAIL INPUT */}
+              <label className="email-label">Email*</label>
+              <input
+                className="email-input"
+                type="email"
+                name="email"
+                onChange={(e) => this.change(e)}
+                value={this.state.email}
+                autoComplete="new-email"
+              />
+              {/* PASSWORD INPUT */}
+              <label className="password-label">Password*</label>
+              <input
+                className="password-input"
+                type="password"
+                name="password"
+                onChange={(e) => this.change(e)}
+                value={this.state.password}
+                autoComplete="new-password"
+              />
+              {/* CONFIRM PASSWORD INPUT */}
+              <label className="passwordCheck-label">Confirm password*</label>
+              <input
+                className="passwordCheck-input"
+                type="password"
+                name="passwordCheck"
+                onChange={(e) => this.change(e)}
+                value={this.state.passwordCheck}
+                autoComplete="new-passwordCheck"
+              />
+              <button type="submit">Submit</button>
+            </form>
+            {/* IF USER WANTS TO LOGIN INSTEAD */}
+            <div className="go-login">
+              <h2>Already have an account?</h2>
+              <p>
+                I think its hilarious u guys talk shit about lucas. u wouldnt
+                say this shit to him at lan, hes jacked. not only that but he
+                wears the freshest clothes, eats at the chillest restaurants and
+                hangs out with the hottest dudes. yall are pathetic lol.
+              </p>
+              <button onClick={() => this.toLogin()}>Login</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </React.Fragment>
-  );
-};
+      </React.Fragment>
+    );
+  }
+}
 
 export default RegisterPage;

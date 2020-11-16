@@ -1,16 +1,23 @@
+// Npm libaries
 import React from "react";
+
+// CSS
 import "./footer.css";
 
+// Website footer that always renders
 const Footer = () => {
+  // Get current year
   const thisYear = new Date().getFullYear();
 
   return (
     <React.Fragment>
       <footer className="my-footer">
         <div className="footer-grid">
+          {/* WEBSITE INFO */}
           <div className="my-info">Copyright &#169; 2020-{thisYear}</div>
           <div className="divider">|</div>
           <div className="designed-by">Created by Lucas Loudon</div>
+          {/* SOCIAL MEDIA LINKS */}
           <div className="my-socials">
             <a
               className="github"

@@ -6,10 +6,12 @@ const User = require("../models/User.model");
 
 const auth = async (req, res, next) => {
   try {
-    // Check if token exists
     const token = req.header("x-auth-token");
-    if (!token)
-      return res.status(401).json({ msg: "No authentication token!" });
+
+    // Check if token exists
+    if (!token || token === "null") {
+      return res.status(401).json({ error: "No authentication token!" });
+    }
 
     // Check if token passes encryption
     const verifiedToken = jwt.verify(token, process.env.ENCRYPT_TOKEN);
@@ -21,7 +23,7 @@ const auth = async (req, res, next) => {
     if (!user)
       return res
         .status(401)
-        .json({ msg: "User for this token does not exist!" });
+        .json({ error: "User for this token does not exist!" });
 
     // Else verified and return token user id
     req.user = verifiedToken.id;

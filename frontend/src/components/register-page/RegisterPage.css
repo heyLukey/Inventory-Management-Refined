@@ -91,22 +91,22 @@
   grid-column: 1/-1;
 }
 
-.page-register .form-register .email-label {
+.page-register .form-register .username-label {
   grid-row: 2;
   grid-column: 1;
 }
 
-.page-register .form-register #register_email {
+.page-register .form-register .username-input {
   grid-row: 2;
   grid-column: 2/-1;
 }
 
-.page-register .form-register .username-label {
+.page-register .form-register .email-label {
   grid-row: 3;
   grid-column: 1;
 }
 
-.page-register .form-register #register_username {
+.page-register .form-register .email-input {
   grid-row: 3;
   grid-column: 2/-1;
 }
@@ -116,7 +116,7 @@
   grid-column: 1;
 }
 
-.page-register .form-register #register_password {
+.page-register .form-register .password-input {
   grid-row: 4;
   grid-column: 2/-1;
 }
@@ -126,7 +126,7 @@
   grid-column: 1;
 }
 
-.page-register .form-register #register_passwordCheck {
+.page-register .form-register .passwordCheck-input {
   grid-row: 5;
   grid-column: 2/-1;
 }

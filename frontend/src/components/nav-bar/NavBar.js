@@ -1,55 +1,91 @@
 // Npm libraries
-import React, { useContext } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
-// Context
-import UserContext from "../../context/User.context";
+// Util function
+import { getJwt } from "../../utils/getJwt";
 
-// Style sheet
-import "./nav-bar.css";
+// CSS
+import "./NavBar.css";
 
-const NavBar = () => {
-  // Get userData from context
-  const { userData, setUserData } = useContext(UserContext);
+// Website navbar than renders differently depending on if user is logged in
+class NavBar extends Component {
+  constructor(props) {
+    super();
 
-  // Get history
-  const history = useHistory();
+    this.state = {
+      loggedIn: undefined,
+    };
 
-  const register = () => {
-    history.push("/register");
-  };
+    this.toRegister = this.toRegister.bind(this);
+    this.toLogin = this.toLogin.bind(this);
+    this.Logout = this.Logout.bind(this);
+  }
 
-  const login = () => {
-    history.push("/login");
-  };
+  // Check if Logged In
+  componentDidMount() {
+    const loggedIn = getJwt();
+    if (!loggedIn) {
+      this.setState({ loggedIn: false });
+    } else {
+      this.setState({ loggedIn: true });
+    }
+  }
 
-  const logout = () => {
-    setUserData({ token: undefined, user: undefined });
-    localStorage.setItem("auth-token", "");
-  };
+  // Push user to /register
+  toRegister() {
+    this.props.history.push("/register");
+  }
 
-  return (
-    <React.Fragment>
-      <div className="header">
-        <nav className="nav-bar">
-          <Link to="/">
-            <h1 className="title">INVENTORY</h1>
-          </Link>
-          <div className="auth-options">
-            {userData.user ? (
-              <button onClick={logout}>Log out</button>
-            ) : (
-              <React.Fragment>
-                <button onClick={register}>Register</button>
-                <button onClick={login}>Login</button>
-              </React.Fragment>
-            )}
-          </div>
-        </nav>
-      </div>
-    </React.Fragment>
-  );
-};
+  // Push user to /login
+  toLogin() {
+    this.props.history.push("/login");
+  }
 
-export default NavBar;
+  // Remove token and push user to /login
+  Logout() {
+    localStorage.removeItem("auth-token");
+    this.props.history.push("/login");
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <div className="header">
+          <nav className="nav-bar">
+            {/* WEBSITE TITLE */}
+            <div className="title">
+              <Link to="/">
+                <h1>INVENTORY</h1>
+              </Link>
+            </div>
+            {/* CONDITIONAL RENDER BASED ON LOGIN */}
+            <div className="auth-options">
+              {this.state.loggedIn ? (
+                <button className="logout" onClick={() => this.Logout()}>
+                  Log out
+                </button>
+              ) : (
+                <React.Fragment>
+                  <button
+                    className="register"
+                    onClick={() => this.toRegister()}
+                  >
+                    Register
+                  </button>
+                  <button className="login" onClick={() => this.toLogin()}>
+                    Login
+                  </button>
+                </React.Fragment>
+              )}
+            </div>
+          </nav>
+        </div>
+        <div className="padded"></div>
+      </React.Fragment>
+    );
+  }
+}
+
+export default withRouter(NavBar);

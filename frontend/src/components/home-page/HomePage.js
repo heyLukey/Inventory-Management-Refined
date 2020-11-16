@@ -1,24 +1,22 @@
-import React, { useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import UserContext from "../../context/User.context";
+// Npm libraries
+import React from "react";
 
+// Components
+import NavBar from "../nav-bar/NavBar";
+
+// CSS
+import "./HomePage.css";
+
+// Website homepage [public]
 const HomePage = () => {
-  // Get userData from context
-  const { userData } = useContext(UserContext);
-
-  // Get history
-  const history = useHistory();
-
-  // Push to login page if not logged in
-  useEffect(() => {
-    if (!userData.user) {
-      history.push("/login");
-    }
-  });
-
   return (
     <React.Fragment>
-      <div>Home</div>
+      <div>
+        <NavBar />
+        <div className="page">
+          <h1>HOME</h1>
+        </div>
+      </div>
     </React.Fragment>
   );
 };

@@ -29,16 +29,11 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-.padded {
-  width: 100%;
-  height: 56px;
-}
-
 .page {
   height: calc(100vh - 56px);
   max-width: 1440px;
   margin: auto;
-  /* Temp */
-  /* border-left: 1px solid rgba(0, 0, 0, 0.05);
-  border-right: 1px solid rgba(0, 0, 0, 0.05); */
+
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
 }

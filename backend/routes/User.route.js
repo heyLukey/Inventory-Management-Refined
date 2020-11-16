@@ -17,8 +17,8 @@ const User = require("../models/User.model");
 // POST details and register user
 router.post(
   "/register",
-  validEmail,
   validUsername,
+  validEmail,
   validPassword,
   async (req, res) => {
     try {
@@ -118,7 +118,8 @@ router.post("/tokenIsValid", async (req, res) => {
     // Else verified
     return res.json(true);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    // Return false if something went wrong
+    res.json(false);
   }
 });
 

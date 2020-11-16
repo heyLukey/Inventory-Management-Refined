@@ -4,6 +4,7 @@
   bottom: 0;
   width: 100%;
   font-size: 10px;
+  background-color: #fffff2;
 }
 
 .footer-grid {
@@ -43,7 +44,28 @@
   grid-row: 2;
   grid-column: 1/-1;
 }
+
 .footer-grid .my-socials a {
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.footer-grid .my-socials .twitter:hover {
+  color: #1da1f2;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.footer-grid .my-socials .facebook:hover {
+  color: #4267b2;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.footer-grid .my-socials .email:hover {
+  color: #db4437;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.footer-grid .my-socials .github:hover {
+  color: #f6f8fa;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }

@@ -19,7 +19,7 @@ const validNotes = require("../middleware/order/Notes.middle");
 const Order = require("../models/Order.model");
 
 // GET filtered orders [protected]
-router.get("/filter", auth, validTodo, validFilter, async (req, res) => {
+router.post("/filter", auth, validTodo, validFilter, async (req, res) => {
   try {
     // Store body variables
     const { query } = req.body;
