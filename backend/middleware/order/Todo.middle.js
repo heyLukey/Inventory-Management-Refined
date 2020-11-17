@@ -5,6 +5,7 @@ const validTodo = async (req, res, next) => {
     // Check todo exists
     if (!todo) return res.status(400).json({ error: "Todo missing!" });
 
+    console.log(todo);
     // Check all todo elements exist
     if (
       !todo.polishing ||
@@ -15,7 +16,7 @@ const validTodo = async (req, res, next) => {
       !todo.rhodium ||
       !todo.cleaning
     )
-      res.status(400).json({ error: "Todo element missing!" });
+      return res.status(400).json({ error: "Todo element missing!" });
 
     // Check all element values are bools
     const todoArr = Object.entries(todo);

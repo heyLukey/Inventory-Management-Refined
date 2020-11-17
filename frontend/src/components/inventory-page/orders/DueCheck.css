@@ -1,0 +1,43 @@
+.due-no {
+  grid-column: 5/-1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: lightgreen;
+  color: #005bac;
+}
+
+.due-close {
+  grid-column: 5/-1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: lightcoral;
+  color: #eed202;
+}
+
+.due-yes {
+  grid-column: 5/-1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: lightcoral;
+  color: #ff0033;
+}
+
+.fa-exclamation-circle {
+  display: flex;
+  align-items: center;
+  padding-right: 0.5rem;
+}
+
+.due-close .fa-exclamation-circle {
+  color: #eed202;
+}
+
+.due-yes .fa-exclamation-circle {
+  color: #ff0033;
+}

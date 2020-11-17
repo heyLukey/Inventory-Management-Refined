@@ -82,7 +82,7 @@ class NavBar extends Component {
             </div>
           </nav>
         </div>
-        <div className="padded"></div>
+        <div className="padded-top"></div>
       </React.Fragment>
     );
   }

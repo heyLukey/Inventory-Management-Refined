@@ -1,0 +1,10 @@
+.order-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-list {
+  width: 80%;
+  list-style: none;
+}

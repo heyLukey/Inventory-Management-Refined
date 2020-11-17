@@ -23,31 +23,33 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          {/* PUBLIC ROUTES */}
-          <Route exact path="/" component={HomePage} />
-          {/* PRIVATE ROUTES */}
-          <PrivateRoute
-            exact={true}
-            path="/inventory"
-            component={InventoryPage}
-          />
-          {/* RESTRICTED ROUTES */}
-          <RestrictedRoute
-            exact={true}
-            path="/register"
-            component={RegisterPage}
-            restricted={true}
-          />
-          <RestrictedRoute
-            exact={true}
-            path="/login"
-            component={LoginPage}
-            restricted={true}
-          />
-          <Route path="*" component={Page404} />
-        </Switch>
-        <Footer />
+        <div className="container">
+          <Switch>
+            {/* PUBLIC ROUTES */}
+            <Route exact path="/" component={HomePage} />
+            {/* PRIVATE ROUTES */}
+            <PrivateRoute
+              exact={true}
+              path="/inventory"
+              component={InventoryPage}
+            />
+            {/* RESTRICTED ROUTES */}
+            <RestrictedRoute
+              exact={true}
+              path="/register"
+              component={RegisterPage}
+              restricted={true}
+            />
+            <RestrictedRoute
+              exact={true}
+              path="/login"
+              component={LoginPage}
+              restricted={true}
+            />
+            <Route path="*" component={Page404} />
+          </Switch>
+          <Footer />
+        </div>
       </BrowserRouter>
     );
   }
