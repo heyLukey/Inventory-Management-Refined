@@ -1,0 +1,26 @@
+.search-bar {
+  grid-column: 3/19;
+  background-color: #333333;
+  /* GRID */
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.fa-search,
+.search-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-search {
+  grid-column: 1;
+  font-size: 1rem;
+  color: #fffff2;
+}
+
+.search-input {
+  grid-column: 2/-1;
+  padding-left: 10px;
+}

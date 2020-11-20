@@ -5,7 +5,6 @@ const validTodo = async (req, res, next) => {
     // Check todo exists
     if (!todo) return res.status(400).json({ error: "Todo missing!" });
 
-    console.log(todo);
     // Check all todo elements exist
     if (
       !todo.polishing ||

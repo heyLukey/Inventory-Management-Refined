@@ -1,0 +1,16 @@
+.inventory-filter {
+  grid-row: 1/-1;
+  grid-column: 1;
+  margin: 0.5rem;
+
+  height: 400px;
+  /* background-color: red; */
+
+  /* display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(7, 1fr); */
+}
+
+.inventory-filter h3 {
+  padding: 0rem 1rem 0.5rem 1rem;
+}

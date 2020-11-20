@@ -1,0 +1,16 @@
+.page-noorders {
+  grid-row: 2/-1;
+  grid-column: 2/-1;
+  margin: 0.5rem;
+
+  background-color: salmon;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.page-noorders h1 {
+  display: block;
+  font-size: 7.5rem;
+}

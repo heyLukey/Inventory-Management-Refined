@@ -7,13 +7,15 @@ const validFilter = async (req, res, next) => {
       res.status(400).json({ error: "Filter element missing!" });
 
     // Check if boolean and set type
-    if (!(active === "true" || active === "false"))
-      res.status(400).json({ error: "Filter element must be Boolean!" });
+    if (!(active === "true" || active === "false" || active === "all"))
+      res
+        .status(400)
+        .json({ error: "Filter element must be Boolean or 'all'!" });
     else if (active === "true") active = true;
     else if (active === "false") active = false;
 
     // Check if boolean and set type
-    if (!(recycled === "true" || recycled === "false"))
+    if (!(recycled === "true" || recycled === "false" || recycled === "all"))
       res.status(400).json({ error: "Filter element must be Boolean!" });
     else if (recycled === "true") recycled = true;
     else if (recycled === "false") recycled = false;
@@ -35,7 +37,12 @@ const validFilter = async (req, res, next) => {
       active: active,
       recycled: recycled,
     };
-    const query = Object.assign(tmp, todo);
+
+    let query = Object.assign(tmp, todo);
+
+    // Check if we have to get rid of active or recycled
+    if (query.active === "all") delete query.active;
+    if (query.recycled === "all") delete query.recycled;
 
     // Set request
     req.body.query = query;

@@ -1,7 +1,6 @@
 TRANSLATING PREVIOUS INVENTORY PROJECT WITH BETTER CODING PRACTICES <br/>
 
 TODO: <br/>
-ORDER SORTING <br/>
 IMPLEMENT ORDER FUNCTIONALITY <br/>
 IMPLEMENT QR CODE FOR SPECIFIC ORDERS: <br/>
 https://stackoverflow.com/questions/58214425/how-to-get-params-using-react-router-dom-v5-0-1 <br/>

@@ -1,0 +1,12 @@
+.inventory-bar {
+  height: 40px;
+  grid-row: 1;
+  grid-column: 2/-1;
+  /* background-color: aqua; */
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  /* GRID */
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}

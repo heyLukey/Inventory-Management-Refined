@@ -1,0 +1,21 @@
+.checkbox-filter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.checkbox-box {
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-label {
+  grid-row: 1;
+  grid-column: 2/-1;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}

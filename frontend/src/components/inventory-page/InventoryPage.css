@@ -1,4 +1,19 @@
 .page-inventory {
   padding-top: 5vh;
   min-height: 100%;
+  /* Grid */
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+  /* FIRST ROW SHOULD BE SLIGHTLY MORE THAN INVBAR HEIGHT */
+  grid-template-rows: 50px 1fr;
+}
+
+.bottom {
+  grid-row: 2/-1;
+  grid-column: 1/-1;
+  /* position: relative; */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
 }
