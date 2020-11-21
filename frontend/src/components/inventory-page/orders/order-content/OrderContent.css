@@ -1,0 +1,11 @@
+.order-content {
+  height: 320px;
+  width: 100%;
+  background-color: plum;
+  /* NEW GRID */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  align-items: center;
+  padding: 1rem;
+}

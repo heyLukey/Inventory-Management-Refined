@@ -54,13 +54,11 @@ class NavBar extends Component {
       <React.Fragment>
         <div className="header">
           <nav className="nav-bar">
-            {/* WEBSITE TITLE */}
             <div className="title">
               <Link to="/">
                 <h1>INVENTORY</h1>
               </Link>
             </div>
-            {/* CONDITIONAL RENDER BASED ON LOGIN */}
             <div className="auth-options">
               {this.state.loggedIn ? (
                 <button className="logout" onClick={() => this.Logout()}>

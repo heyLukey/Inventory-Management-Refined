@@ -11,6 +11,7 @@ const Footer = () => {
 
   return (
     <React.Fragment>
+      <div className="padded-bottom"></div>
       <footer className="my-footer">
         <div className="footer-grid">
           {/* WEBSITE INFO */}

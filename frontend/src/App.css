@@ -29,8 +29,18 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+button:focus {
+  background-color: rgba(0, 0, 0, 0.025);
+  outline: none;
+}
+
 .page {
-  height: calc(100vh - 56px);
+  /* height: calc(100vh - 56px); */
+  min-height: calc(100vh - 56px);
   max-width: 1440px;
   margin: auto;
 

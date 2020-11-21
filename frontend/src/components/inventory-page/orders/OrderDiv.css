@@ -1,40 +1,5 @@
-.accordion-div {
+.order-div {
   height: 100%;
   border: 1px solid #333333;
   margin: 0.5rem;
-}
-
-.accordion-top {
-  height: 40px;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-}
-
-.accordion-top:hover {
-  color: #005bac;
-}
-
-.fa-chevron-up,
-.fa-chevron-down {
-  font-size: 1rem;
-}
-
-.accordion-text {
-  /* Inhertit grid */
-  grid-column: 1/10;
-  grid-row: 1;
-  /* New grid */
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-}
-
-.accordion-title {
-  grid-column: 1/5;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  padding: 0.5rem;
-  background-color: aqua;
 }

@@ -1,11 +1,19 @@
+.archived {
+  grid-column: 5/-1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0.5rem;
+  color: #333333;
+}
+
 .due-no {
   grid-column: 5/-1;
   display: flex;
   justify-content: left;
   align-items: center;
   padding: 0.5rem;
-  background-color: lightgreen;
-  color: #005bac;
+  color: #5bb966;
 }
 
 .due-close {
@@ -14,8 +22,7 @@
   justify-content: left;
   align-items: center;
   padding: 0.5rem;
-  background-color: lightcoral;
-  color: #eed202;
+  color: #ffa824;
 }
 
 .due-yes {
@@ -24,7 +31,6 @@
   justify-content: left;
   align-items: center;
   padding: 0.5rem;
-  background-color: lightcoral;
   color: #ff0033;
 }
 
@@ -35,7 +41,7 @@
 }
 
 .due-close .fa-exclamation-circle {
-  color: #eed202;
+  color: #ffa824;
 }
 
 .due-yes .fa-exclamation-circle {

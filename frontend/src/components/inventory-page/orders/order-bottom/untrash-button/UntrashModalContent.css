@@ -1,0 +1,46 @@
+.untrash-modal-content {
+  background-color: #fffff2;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  padding: 1rem;
+}
+
+.untrash-modal-content h1 {
+  font-size: 1.5rem;
+  grid-row: 1;
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.untrash-modal-content p {
+  font-size: 0.75rem;
+  grid-row: 2/4;
+  grid-column: 1/-1;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.untrash-modal-yes {
+  font-size: 1em;
+  grid-row: 4;
+  grid-column: 2;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.untrash-modal-no {
+  font-size: 1em;
+  grid-row: 4;
+  grid-column: 4;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  /* background: chocolate; */
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}

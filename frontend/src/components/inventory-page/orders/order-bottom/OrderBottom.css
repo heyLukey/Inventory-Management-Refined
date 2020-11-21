@@ -1,0 +1,45 @@
+.order-bottom {
+  height: 40px;
+  /* NEW GRID */
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.qr,
+.archive,
+.edit,
+.trash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr {
+  grid-column: 1;
+}
+
+.archive {
+  grid-column: 2;
+}
+
+.edit {
+  grid-column: 9;
+  background-color: bisque;
+}
+
+.trash {
+  grid-column: 10;
+}
+
+.edit .fa-edit {
+  font-size: 1.3rem;
+}
+
+.edit .fa-edit:hover {
+  color: #005bac;
+}
+
+/* .trash .fa-trash-restore-alt:hover {
+  color: #5bb966;
+} */

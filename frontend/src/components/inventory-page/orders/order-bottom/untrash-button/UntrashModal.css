@@ -1,0 +1,45 @@
+.untrash-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.untrash-modal-background {
+  /* Modal setup */
+  position: absolute;
+  top: 20vh;
+  left: 25vw;
+  right: 25vw;
+  bottom: 20vh;
+  overflow: auto;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  /* border-radius: 5px; */
+  /* GRID */
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 40px calc(100% - 40px);
+}
+
+.untrash-modal-top {
+  background-color: #333333;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.untrash-modal-top button {
+  grid-column: 1;
+}
+
+.fa-times-circle {
+  font-size: 1.5rem;
+  color: #fffff2;
+}
+
+.fa-times-circle:hover {
+  color: #005bac;
+}

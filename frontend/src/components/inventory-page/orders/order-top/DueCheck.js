@@ -4,7 +4,7 @@ import React from "react";
 // CSS
 import "./DueCheck.css";
 
-const DueCheck = ({ deadline }) => {
+const DueCheck = ({ deadline, active }) => {
   const renderText = (due) => {
     const dueDate = due.slice(0, 10);
     const dueDateArr = dueDate.split("-");
@@ -12,7 +12,10 @@ const DueCheck = ({ deadline }) => {
     const currentDateArr = currentDate.split("-");
 
     let returnDiv = <div className="due-no">Empty</div>;
-    let toReturn = "";
+
+    if (!active) {
+      return (returnDiv = <div className="archived">Archived Order</div>);
+    }
 
     // Check if past deadline
     if (dueDate < currentDate) {

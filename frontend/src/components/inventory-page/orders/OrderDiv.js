@@ -1,37 +1,31 @@
 // Npm libraries
 import React, { useState } from "react";
-import DueCheck from "./DueCheck";
-import OrderContent from "./OrderContent";
+import OrderTop from "./order-top/OrderTop";
+import OrderContent from "./order-content/OrderContent";
 
 // CSS
 import "./OrderDiv.css";
+import OrderBottom from "./order-bottom/OrderBottom";
 
 // Induvidual order div [protected]
-const OrderDiv = ({ orderObject, reRender, setReRender }) => {
+const OrderDiv = ({ reRender, setReRender, orderObject }) => {
   // States
   const [open, setOpen] = useState(false);
 
-  const clickOpen = () => {
-    setOpen(!open);
-  };
-
   return (
     <React.Fragment>
-      <div className="accordion-div">
-        <div className="accordion-top">
-          <button className="accordion-text" onClick={clickOpen}>
-            <div className="accordion-title">{orderObject.title}</div>
-            <DueCheck deadline={orderObject.deadline} />
-          </button>
-          <button onClick={clickOpen}>
-            {open ? (
-              <i className="fas fa-chevron-up"></i>
-            ) : (
-              <i className="fas fa-chevron-down"></i>
-            )}
-          </button>
-        </div>
-        {open ? <OrderContent orderObject={orderObject} /> : null}
+      <div className="order-div">
+        <OrderTop open={open} setOpen={setOpen} orderObject={orderObject} />
+        {open ? (
+          <div className="order-open">
+            <OrderContent orderObject={orderObject} />
+            <OrderBottom
+              reRender={reRender}
+              setReRender={setReRender}
+              orderObject={orderObject}
+            />
+          </div>
+        ) : null}
       </div>
     </React.Fragment>
   );
