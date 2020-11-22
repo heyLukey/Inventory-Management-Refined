@@ -30,10 +30,11 @@ const OrderList = ({ displayOrders, reRender, setReRender }) => {
           <ul className="order-list">
             {displayOrders.map((orderObject) => (
               <OrderDiv
+                defaultOpen={false}
                 key={orderObject._id}
-                orderObject={orderObject}
                 reRender={reRender}
                 setReRender={setReRender}
+                orderObject={orderObject}
               />
             ))}
           </ul>

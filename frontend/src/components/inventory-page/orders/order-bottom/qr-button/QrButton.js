@@ -23,7 +23,7 @@ const QrButton = ({ orderObject }) => {
           className="qr-download"
           size={512}
           id={`QR-${orderObject.title}`}
-          value={`http://localhost:5000/order/${orderObject._id}`}
+          value={`http://localhost:3000/inventory/${orderObject._id}`}
           includeMargin={true}
         />
       </div>

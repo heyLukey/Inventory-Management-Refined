@@ -18,7 +18,7 @@ import "./InventoryPage.css";
 const InventoryPage = () => {
   // Render states
   const [reRender, setReRender] = useState(false);
-  const [displayOrders, setDisplayOrders] = useState([]);
+  const [displayOrders, setDisplayOrders] = useState(false);
 
   // Sort states
   const [search, setSearch] = useState("");
@@ -106,12 +106,13 @@ const InventoryPage = () => {
             search={search}
             setSearch={setSearch}
           />
-
-          <OrderList
-            displayOrders={searchSort(displayOrders)}
-            reRender={reRender}
-            setReRender={setReRender}
-          />
+          {displayOrders ? (
+            <OrderList
+              displayOrders={searchSort(displayOrders)}
+              reRender={reRender}
+              setReRender={setReRender}
+            />
+          ) : null}
           <InventoryFilter query={query} setQuery={setQuery} />
         </div>
       </div>

@@ -8,6 +8,7 @@ import LoginPage from "./components/login-page/LoginPage";
 import RegisterPage from "./components/register-page/RegisterPage";
 import InventoryPage from "./components/inventory-page/InventoryPage";
 import Page404 from "./components/page-404/Page404";
+import QrPage from "./components/inventory-page/QrPage";
 
 // Website footer
 import Footer from "./components/footer/Footer";
@@ -32,6 +33,11 @@ class App extends Component {
               exact={true}
               path="/inventory"
               component={InventoryPage}
+            />
+            <PrivateRoute
+              exact={true}
+              path="/inventory/:orderID"
+              component={QrPage}
             />
             {/* RESTRICTED ROUTES */}
             <RestrictedRoute

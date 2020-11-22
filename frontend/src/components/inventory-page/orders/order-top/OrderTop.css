@@ -30,6 +30,18 @@
   grid-template-rows: repeat(1, 1fr);
 }
 
+.order-top-text-recycled {
+  /* Inhertit grid */
+  grid-column: 1/10;
+  grid-row: 1;
+  /* New grid */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  text-decoration: line-through;
+  color: #ff0033;
+}
+
 .order-top-title {
   grid-column: 1/5;
   display: flex;

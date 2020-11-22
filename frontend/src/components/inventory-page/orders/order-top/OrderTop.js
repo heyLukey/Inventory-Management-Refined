@@ -4,13 +4,22 @@ import "./OrderTop.css";
 
 const OrderTop = ({ open, setOpen, orderObject }) => {
   const clickOpen = () => {
-    setOpen(!open);
+    if (open === true) {
+      setOpen(false);
+    } else if (open === false) {
+      setOpen(true);
+    }
   };
 
   return (
     <React.Fragment>
       <div className="order-top">
-        <button className="order-top-text" onClick={clickOpen}>
+        <button
+          className={
+            orderObject.recycled ? "order-top-text-recycled" : "order-top-text"
+          }
+          onClick={clickOpen}
+        >
           <div className="order-top-title">{orderObject.title}</div>
           <DueCheck
             deadline={orderObject.deadline}

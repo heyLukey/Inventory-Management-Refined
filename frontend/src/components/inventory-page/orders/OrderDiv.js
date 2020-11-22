@@ -8,9 +8,9 @@ import "./OrderDiv.css";
 import OrderBottom from "./order-bottom/OrderBottom";
 
 // Induvidual order div [protected]
-const OrderDiv = ({ reRender, setReRender, orderObject }) => {
+const OrderDiv = ({ defaultOpen, reRender, setReRender, orderObject }) => {
   // States
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <React.Fragment>
