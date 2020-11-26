@@ -47,8 +47,6 @@ const orderSchema = mongoose.Schema({
   deadline: {
     type: Date,
     required: true,
-    // set to ISO to allow same day
-    min: new Date().toISOString(),
   },
   created: {
     type: Date,

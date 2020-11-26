@@ -1,4 +1,4 @@
-.trash-modal-overlay {
+.edit-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,13 +7,13 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.trash-modal-background {
+.edit-modal-background {
   /* Modal setup */
   position: absolute;
-  top: 20vh;
-  left: 25vw;
-  right: 25vw;
-  bottom: 20vh;
+  top: 15vh;
+  left: 15vw;
+  right: 15vw;
+  bottom: 15vh;
   overflow: auto;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.5);
@@ -24,14 +24,14 @@
   grid-template-rows: 40px calc(100% - 40px);
 }
 
-.trash-modal-top {
+.edit-modal-top {
   background-color: #333333;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(1, 1fr);
 }
 
-.trash-modal-top button {
+.edit-modal-top button {
   grid-column: 1;
 }
 

@@ -5,6 +5,7 @@ import UntrashButton from "./untrash-button/UntrashButton";
 import ArchiveButton from "./archive-button/ArchiveButton";
 import UnarchiveButton from "./archive-button/UnarchiveButton";
 import QrButton from "./qr-button/QrButton";
+import EditButton from "./edit-button/EditButton";
 
 const OrderBottom = ({ reRender, setReRender, orderObject }) => {
   return (
@@ -29,9 +30,11 @@ const OrderBottom = ({ reRender, setReRender, orderObject }) => {
           )}
         </div>
         <div className="edit">
-          <button>
-            <i className="fas fa-edit"></i>
-          </button>
+          <EditButton
+            reRender={reRender}
+            setReRender={setReRender}
+            orderObject={orderObject}
+          />
         </div>
         <div className="trash">
           {orderObject.recycled ? (

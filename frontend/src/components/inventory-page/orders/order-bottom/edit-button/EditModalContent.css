@@ -1,0 +1,78 @@
+.edit-modal-content {
+  background-color: #fffff2;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: grid;
+  grid-template-rows: 5% 80% 15%;
+}
+
+.error-div {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.edit-order-div {
+  /* height: 100%; */
+  width: 100%;
+  grid-row: 2;
+  border: 1px solid #333333;
+}
+
+.edit-title {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #333333;
+}
+
+.edit-title-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  resize: none;
+}
+
+.edit-order-content {
+  width: 100%;
+  /* NEW GRID */
+  display: grid;
+  grid-gap: 5px;
+  align-items: center;
+  padding: 1rem;
+}
+
+.edit-order-content-todo {
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  /* background-color: red; */
+  display: grid;
+  grid-gap: 5px;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.edit-order-button {
+  grid-row: 3;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-edit {
+  width: 80%;
+  height: 80%;
+  font-size: 1em;
+  background-color: #5bb966;
+  color: white;
+  border-radius: 2px;
+}
+
+.submit-edit:focus {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 2px;
+}

@@ -52,7 +52,7 @@ const DueCheck = ({ deadline, active }) => {
     }
 
     // Check Day
-    if (dueDateArr[2] > currentDateArr[2]) {
+    if (dueDateArr[2] >= currentDateArr[2]) {
       const dayDifference = dueDateArr[2] - currentDateArr[2];
       if (dayDifference > 7) {
         return (returnDiv = (
@@ -65,11 +65,18 @@ const DueCheck = ({ deadline, active }) => {
             {`Due in ${dayDifference} days`}
           </div>
         ));
-      } else {
+      } else if (dayDifference === 1) {
         return (returnDiv = (
           <div className="due-close">
             <i className="fas fa-exclamation-circle"></i>
             {"Due tommorrow"}
+          </div>
+        ));
+      } else {
+        return (returnDiv = (
+          <div className="due-yes">
+            <i className="fas fa-exclamation-circle"></i>
+            {"Due today"}
           </div>
         ));
       }

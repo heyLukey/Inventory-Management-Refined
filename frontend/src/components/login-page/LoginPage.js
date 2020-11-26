@@ -67,9 +67,11 @@ class LoginPage extends Component {
           <div className="page-login">
             <h1 className="page-title">Login</h1>
             {/* IF WE GOT AN ERROR DURING REGISTRATION THEN RENDER ErrorNotice */}
-            {this.state.errorMsg && (
-              <ErrorNotice errorMsg={this.state.errorMsg} />
-            )}
+            <div className="error-div">
+              {this.state.errorMsg && (
+                <ErrorNotice errorMsg={this.state.errorMsg} />
+              )}
+            </div>
             {/* SUBMISSION FORM */}
             <form className="form-login" onSubmit={(e) => this.submit(e)}>
               <h2 className="form-title">Existing Users</h2>

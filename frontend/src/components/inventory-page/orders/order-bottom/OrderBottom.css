@@ -25,21 +25,8 @@
 
 .edit {
   grid-column: 9;
-  background-color: bisque;
 }
 
 .trash {
   grid-column: 10;
 }
-
-.edit .fa-edit {
-  font-size: 1.3rem;
-}
-
-.edit .fa-edit:hover {
-  color: #005bac;
-}
-
-/* .trash .fa-trash-restore-alt:hover {
-  color: #5bb966;
-} */

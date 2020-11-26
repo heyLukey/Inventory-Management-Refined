@@ -8,6 +8,7 @@
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(1, 1fr);
+  align-content: center;
 }
 
 .order-top:hover {
@@ -49,4 +50,5 @@
   align-items: center;
   padding: 0.5rem;
   font-weight: 600;
+  height: 100%;
 }

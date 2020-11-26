@@ -1,0 +1,28 @@
+.edit-order-todo {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  /* background-color: lightblue; */
+}
+
+.edit-todo-label {
+  grid-column: 1;
+}
+
+.edit-todo-toggle {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-check {
+  color: #5bb966;
+}
+
+.fa-times {
+  color: #ff0033;
+}
