@@ -1,0 +1,14 @@
+.post-button {
+  height: 40px;
+  grid-row: 1;
+  grid-column: 1;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  background-color: #5bb966;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.post-button:hover {
+  background-color: #5bb9669f;
+}

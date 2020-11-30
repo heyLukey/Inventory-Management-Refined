@@ -7,6 +7,7 @@ import NavBar from "../nav-bar/NavBar";
 import OrderList from "./orders/OrderList";
 import InventoryBar from "./inventory-bar/InventoryBar";
 import InventoryFilter from "./inventory-filter/InventoryFilter";
+import PostButton from "./post-order/PostButton";
 
 // Util functions
 import { getJwt } from "../../utils/getJwt";
@@ -98,6 +99,7 @@ const InventoryPage = () => {
       <NavBar />
       <div className="page">
         <div className="page-inventory">
+          <PostButton reRender={reRender} setReRender={setReRender} />
           <InventoryBar
             query={query}
             setQuery={setQuery}

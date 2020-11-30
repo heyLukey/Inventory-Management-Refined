@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./EditModalDate.css";
+import "./PostModalDate.css";
 
-const EditModalDate = ({ target, value, setValue, minDate }) => {
+const PostModalDate = ({ target, value, setValue }) => {
   const inputDate = (e) => {
     console.log(e.target.value);
     setValue(e.target.value);
@@ -10,13 +10,13 @@ const EditModalDate = ({ target, value, setValue, minDate }) => {
 
   return (
     <React.Fragment>
-      <div className="edit-order-date">
-        <label className="edit-date-label">
+      <div className="post-order-date">
+        <label className="post-date-label">
           {target.charAt(0).toUpperCase() + target.slice(1) + ":"}
         </label>
         <div>
           <input
-            className="edit-date-input"
+            className="post-date-input"
             type="date"
             defaultValue={value}
             min={new Date().toISOString().split("T")[0]}
@@ -28,4 +28,4 @@ const EditModalDate = ({ target, value, setValue, minDate }) => {
   );
 };
 
-export default EditModalDate;
+export default PostModalDate;

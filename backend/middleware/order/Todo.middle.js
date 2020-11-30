@@ -5,22 +5,14 @@ const validTodo = async (req, res, next) => {
     // Check todo exists
     if (!todo) return res.status(400).json({ error: "Todo missing!" });
 
-    // Check all todo elements exist
-    if (
-      !todo.polishing ||
-      !todo.sizing ||
-      !todo.lazer ||
-      !todo.engraving ||
-      !todo.plating ||
-      !todo.rhodium ||
-      !todo.cleaning
-    )
-      return res.status(400).json({ error: "Todo element missing!" });
+    // At least one task should be present
+    if (Object.keys(todo).length < 1)
+      return res.status(400).json({ error: "Select at least one task!" });
 
     // Check all element values are bools
     const todoArr = Object.entries(todo);
     for (const task of todoArr) {
-      if (!(task[1] === "true" || task[1] === "false")) {
+      if (!(task[1] === "true" || task[1] === "false" || task[1] === null)) {
         return res
           .status(400)
           .json({ error: "All Todo elements must be bools!" });

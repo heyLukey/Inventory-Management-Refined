@@ -33,11 +33,6 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.025);
 }
 
-button:focus {
-  background-color: rgba(0, 0, 0, 0.025);
-  outline: none;
-}
-
 .page {
   /* height: calc(100vh - 56px); */
   min-height: calc(100vh - 56px);

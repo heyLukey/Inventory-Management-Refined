@@ -1,45 +1,38 @@
 import React from "react";
 import Modal from "react-modal";
-import EditModalContent from "./EditModalContent";
+import PostModalContent from "./PostModalContent";
 
-import "./EditModal.css";
+import "./PostModal.css";
 
 Modal.setAppElement("#root");
-const EditModal = ({
-  reRender,
-  setReRender,
-  editOpen,
-  setEditOpen,
-  orderObject,
-}) => {
+const PostModal = ({ reRender, setReRender, postOpen, setPostOpen }) => {
   const modalClose = () => {
-    setEditOpen(false);
+    setPostOpen(false);
   };
 
   return (
     <React.Fragment>
       <Modal
-        isOpen={editOpen}
+        isOpen={postOpen}
         onRequestClose={modalClose}
-        className="edit-modal-background"
-        overlayClassName="edit-modal-overlay"
+        className="post-modal-background"
+        overlayClassName="post-modal-overlay"
       >
-        <div className="edit-modal-top">
+        <div className="post-modal-top">
           <button onClick={modalClose}>
             <i className="far fa-times-circle"></i>
           </button>
-          <h3>Editing Order (id = {orderObject._id})</h3>
+          <h3>Creating New Order</h3>
         </div>
 
-        <EditModalContent
+        <PostModalContent
           reRender={reRender}
           setReRender={setReRender}
           modalClose={modalClose}
-          orderObject={orderObject}
         />
       </Modal>
     </React.Fragment>
   );
 };
 
-export default EditModal;
+export default PostModal;

@@ -1,4 +1,4 @@
-.edit-modal-overlay {
+.post-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,7 +7,7 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.edit-modal-background {
+.post-modal-background {
   /* Modal setup */
   position: absolute;
   top: 15vh;
@@ -24,21 +24,21 @@
   grid-template-rows: 40px calc(100% - 40px);
 }
 
-.edit-modal-top {
+.post-modal-top {
   background-color: #333333;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(1, 1fr);
 }
 
-.edit-modal-top button {
+.post-modal-top button {
   grid-column: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.edit-modal-top h3 {
+.post-modal-top h3 {
   font-size: 1rem;
   color: #fffff2;
   display: flex;

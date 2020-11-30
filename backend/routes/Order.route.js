@@ -124,6 +124,57 @@ router.post(
   }
 );
 
+// PATCH order [protected]
+router.patch(
+  "/edit/:orderID",
+  auth,
+  validTitle,
+  validCustomer,
+  validDescription,
+  validQuantity,
+  validPrice,
+  validTodo,
+  validDeadline,
+  validNotes,
+  async (req, res) => {
+    try {
+      // Store body variables
+      const {
+        title,
+        customer,
+        description,
+        quantity,
+        price,
+        todo,
+        deadline,
+        notes,
+      } = req.body;
+
+      // Patch title
+      const patchOrder = await Order.updateOne(
+        { _id: req.params.orderID },
+        {
+          $set: {
+            title: title,
+            customer: customer,
+            description: description,
+            quantity: quantity,
+            price: price,
+            todo: todo,
+            deadline: deadline,
+            notes: notes,
+          },
+        },
+        { runValidators: true }
+      );
+      res.json(patchOrder);
+      console.log(`PATCH to '/edit/${req.params.orderID}' success!`);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+);
+
 // PATCH title value in given order [protected]
 router.patch("/title/:orderID", auth, validTitle, async (req, res) => {
   try {

@@ -13,7 +13,9 @@ const EditModalText = ({ target, value, setValue }) => {
     <React.Fragment>
       <div className="edit-order-text">
         <label className="edit-text-label">
-          {target.charAt(0).toUpperCase() + target.slice(1) + ":"}
+          {target === "price"
+            ? target.charAt(0).toUpperCase() + target.slice(1) + " (£):"
+            : target.charAt(0).toUpperCase() + target.slice(1) + ":"}
         </label>
         <TextareaAutosize
           className="edit-text-input"

@@ -1,0 +1,45 @@
+.post-order-todo {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.post-todo-label {
+  grid-column: 1;
+}
+
+.post-order-todo button {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 50%;
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-todo-undefined {
+  background-color: #eee;
+}
+
+.post-todo-undefined:hover {
+  background-color: #ccc;
+}
+
+.post-todo-false {
+  background-color: #2196f3;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.post-todo-false:hover {
+  background-color: #2196f3;
+}
+
+.dot {
+  background-color: white;
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+}

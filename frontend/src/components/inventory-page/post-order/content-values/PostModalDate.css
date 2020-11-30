@@ -1,0 +1,16 @@
+.post-order-date {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.post-date-label {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+}
+
+.post-date-input {
+  display: flex;
+  align-items: center;
+}

@@ -1,1 +1,29 @@
+.page-home {
+  height: 100%;
+  width: 100%;
+  /* RESET CENTER */
+  padding-bottom: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.page-home h1 {
+  display: block;
+  font-size: 15rem;
+}
+
+.go-inventory {
+  margin: 5rem;
+  width: 200px;
+  height: 200px;
+  font-size: 1em;
+  background-color: #5bb966;
+  color: white;
+  border-radius: 2px;
+}
+
+.go-inventory:hover {
+  background-color: #5bb9669f;
+}

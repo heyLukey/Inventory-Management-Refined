@@ -25,24 +25,23 @@ const validFilter = async (req, res, next) => {
     // Delete unwanted properties
     for (const task in todo) {
       if (todo[task] === "true") {
-        todo[task] = true;
-        todo["todo." + task] = todo[task];
+        todo["todo." + task] = { $exists: true };
         delete todo[task];
       }
       if (todo[task] === "false") delete todo[task];
     }
 
     // Merge todo and other variables into one query object
-    const tmp = {
-      active: active,
-      recycled: recycled,
+    let tmp = {
+      $and: [{ active: active, recycled: recycled }, {}],
     };
+    tmp.$and[1] = todo;
 
-    let query = Object.assign(tmp, todo);
+    const query = Object.assign(tmp);
 
     // Check if we have to get rid of active or recycled
-    if (query.active === "all") delete query.active;
-    if (query.recycled === "all") delete query.recycled;
+    if (query.$and[0].active === "all") delete query.$and[0].active;
+    if (query.$and[0].recycled === "all") delete query.$and[0].recycled;
 
     // Set request
     req.body.query = query;

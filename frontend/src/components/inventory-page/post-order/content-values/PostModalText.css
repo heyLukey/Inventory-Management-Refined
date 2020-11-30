@@ -1,17 +1,16 @@
-.edit-order-text {
+.post-order-text {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  /* background-color: lightblue; */
 }
 
-.edit-text-label {
+.post-text-label {
   grid-column: 1;
   display: flex;
   align-items: center;
 }
 
-.edit-text-input {
+.post-text-input {
   grid-column: 2/-1;
   display: flex;
   align-items: center;

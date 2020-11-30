@@ -1,4 +1,4 @@
-.edit-modal-content {
+.post-modal-content {
   background-color: #fffff2;
   padding-top: 1rem;
   padding-left: 1rem;
@@ -12,13 +12,13 @@
   grid-column: 1;
 }
 
-.edit-order-div {
+.post-order-div {
   width: 100%;
   grid-row: 2;
   border: 1px solid #333333;
 }
 
-.edit-title {
+.post-title {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -26,14 +26,14 @@
   border-bottom: 1px solid #333333;
 }
 
-.edit-title-input {
+.post-title-input {
   width: 100%;
   display: flex;
   align-items: center;
   resize: none;
 }
 
-.edit-order-content {
+.post-order-content {
   width: 100%;
   /* NEW GRID */
   display: grid;
@@ -42,7 +42,7 @@
   padding: 1rem;
 }
 
-.edit-order-content-todo {
+.post-order-content-todo {
   border-top: 1px solid rgba(0, 0, 0, 0.25);
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   display: grid;
@@ -52,7 +52,11 @@
   margin: 0.5rem;
 }
 
-.edit-order-button {
+.todo-instructions {
+  text-decoration: underline;
+}
+
+.post-order-button {
   grid-row: 3;
   padding: 0.5rem;
   display: flex;
@@ -60,7 +64,7 @@
   justify-content: center;
 }
 
-.submit-edit {
+.submit-post {
   width: 80%;
   height: 80%;
   font-size: 1em;
@@ -69,6 +73,6 @@
   border-radius: 2px;
 }
 
-.submit-edit:hover {
+.submit-post:hover {
   background-color: #5bb9669f;
 }
