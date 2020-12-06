@@ -1,0 +1,37 @@
+/* DESKTOP */
+.auth-options {
+  grid-column: 2/-1;
+  /* GRID AGAIN */
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.auth-options .register {
+  grid-column: 8;
+}
+
+.auth-options .login {
+  grid-column: 9;
+}
+
+.auth-options .logout {
+  grid-column: 8/-1;
+}
+
+.auth-options button {
+  font-size: 1rem;
+}
+
+/* MOBILE */
+.hamburger-div {
+  background-color: green;
+  grid-column: 8/-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger-div .fa-bars {
+  font-size: 1.5rem;
+}

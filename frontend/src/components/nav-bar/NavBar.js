@@ -8,6 +8,7 @@ import { getJwt } from "../../utils/getJwt";
 
 // CSS
 import "./NavBar.css";
+import Responsive from "./Reponsive";
 
 // Website navbar than renders differently depending on if user is logged in
 class NavBar extends Component {
@@ -17,10 +18,6 @@ class NavBar extends Component {
     this.state = {
       loggedIn: undefined,
     };
-
-    this.toRegister = this.toRegister.bind(this);
-    this.toLogin = this.toLogin.bind(this);
-    this.Logout = this.Logout.bind(this);
   }
 
   // Check if Logged In
@@ -33,22 +30,6 @@ class NavBar extends Component {
     }
   }
 
-  // Push user to /register
-  toRegister() {
-    this.props.history.push("/register");
-  }
-
-  // Push user to /login
-  toLogin() {
-    this.props.history.push("/login");
-  }
-
-  // Remove token and push user to /login
-  Logout() {
-    localStorage.removeItem("auth-token");
-    this.props.history.push("/login");
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -59,25 +40,7 @@ class NavBar extends Component {
                 <h1>INVENTORY</h1>
               </Link>
             </div>
-            <div className="auth-options">
-              {this.state.loggedIn ? (
-                <button className="logout" onClick={() => this.Logout()}>
-                  Log out
-                </button>
-              ) : (
-                <React.Fragment>
-                  <button
-                    className="register"
-                    onClick={() => this.toRegister()}
-                  >
-                    Register
-                  </button>
-                  <button className="login" onClick={() => this.toLogin()}>
-                    Login
-                  </button>
-                </React.Fragment>
-              )}
-            </div>
+            <Responsive loggedIn={this.state.loggedIn} />
           </nav>
         </div>
         <div className="padded-top"></div>

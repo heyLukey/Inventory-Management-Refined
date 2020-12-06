@@ -7,7 +7,7 @@
   grid-template-rows: 5% 80% 15%;
 }
 
-.error-div {
+.patch-error-div {
   grid-row: 1;
   grid-column: 1;
 }

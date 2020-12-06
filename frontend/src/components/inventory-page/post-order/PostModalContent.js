@@ -94,7 +94,7 @@ const PostModalContent = ({ reRender, setReRender, modalClose }) => {
   return (
     <React.Fragment>
       <div className="post-modal-content">
-        <div className="error-div">
+        <div className="post-error-div">
           {errorMsg && <ErrorNotice errorMsg={errorMsg} />}
         </div>
         <div className="post-order-div">

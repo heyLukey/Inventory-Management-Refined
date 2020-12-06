@@ -113,7 +113,7 @@ const EditModalContent = ({
   return (
     <React.Fragment>
       <div className="edit-modal-content">
-        <div className="error-div">
+        <div className="patch-error-div">
           {errorMsg && <ErrorNotice errorMsg={errorMsg} />}
         </div>
         <div className="edit-order-div">

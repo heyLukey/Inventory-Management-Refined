@@ -88,11 +88,13 @@ class RegisterPage extends Component {
         <NavBar></NavBar>
         <div className="page">
           <div className="page-register">
-            <h1 className="page-title">Login</h1>
+            <h1 className="page-title">Register</h1>
             {/* IF WE GOT AN ERROR DURING REGISTRATION THEN RENDER ErrorNotice */}
-            {this.state.errorMsg && (
-              <ErrorNotice errorMsg={this.state.errorMsg} />
-            )}
+            <div className="register-error-div">
+              {this.state.errorMsg && (
+                <ErrorNotice errorMsg={this.state.errorMsg} />
+              )}
+            </div>
             {/* SUBMISSION FORM */}
             <form className="form-register" onSubmit={(e) => this.submit(e)}>
               <h2 className="form-title">New Users</h2>

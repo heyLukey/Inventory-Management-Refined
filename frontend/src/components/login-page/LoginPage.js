@@ -67,7 +67,7 @@ class LoginPage extends Component {
           <div className="page-login">
             <h1 className="page-title">Login</h1>
             {/* IF WE GOT AN ERROR DURING REGISTRATION THEN RENDER ErrorNotice */}
-            <div className="error-div">
+            <div className="login-error-div">
               {this.state.errorMsg && (
                 <ErrorNotice errorMsg={this.state.errorMsg} />
               )}
